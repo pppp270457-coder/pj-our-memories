@@ -3,240 +3,209 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>P ♡ J | Our Memories</title>
 <style>
 *{box-sizing:border-box}
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#fff0f3,#fce4ec,#fff7f0);
-  color:#694b55;
+  color:#704d5b;
+  background:linear-gradient(145deg,#fff0f4,#f9dce7,#fff8f5);
   text-align:center;
 }
 .page{
   display:none;
   min-height:100vh;
-  padding:35px 20px 110px;
-  justify-content:center;
+  padding:35px 18px 110px;
   align-items:center;
+  justify-content:center;
   flex-direction:column;
 }
-
 .page.active{display:flex}
-h1{font-size:32px}
+.card{
+  width:100%;
+  max-width:440px;
+  padding:28px 20px;
+  background:#ffffffdf;
+  border-radius:25px;
+  box-shadow:0 8px 30px #b8799220;
+}
+h1{font-size:35px}
 h2{font-size:24px}
 p{line-height:1.8}
 button{
   border:0;
-  border-radius:25px;
-  background:#d98da5;
+  border-radius:30px;
+  background:#d98da8;
   color:white;
-  padding:13px 25px;
+  padding:13px 24px;
+  margin:7px;
   font-size:16px;
-  margin:8px;
-  cursor:pointer;
 }
-button:active{transform:scale(.96)}
 .photo{
   width:100%;
-  max-width:340px;
+  max-width:350px;
   max-height:55vh;
   object-fit:contain;
   border-radius:18px;
-  box-shadow:0 5px 20px #0002;
 }
 video{
   width:100%;
-  max-width:340px;
+  max-width:350px;
   border-radius:18px;
 }
-.card{
-  background:#ffffffbd;
-  padding:25px;
-  border-radius:25px;
-  max-width:420px;
-  width:100%;
-  box-shadow:0 5px 20px #0001;
+.small{font-size:13px;color:#a17d8b}
+#love-counter{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:20px;
 }
-.small{font-size:13px;color:#987783}
+.time-box{
+  background:#fff0f5;
+  border-radius:15px;
+  padding:13px 5px;
+}
+.time-box strong{
+  display:block;
+  font-size:23px;
+  color:#bd6e8d;
+}
+.time-box span{font-size:13px}
+.navigation{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:8px;
+  background:#fffaf5ee;
+}
+#music-status{font-size:13px;color:#a17d8b}
 </style>
 </head>
 <body>
 
+<!-- เครื่องเล่นเพลงจะถูกสร้างหลังจากกดเริ่ม -->
+<div id="music-area" style="position:fixed;width:1px;height:1px;overflow:hidden;top:0;left:0"></div>
+
+<!-- หน้าแรก -->
 <section class="page active">
   <div class="card">
     <h1>P ♡ J</h1>
-    <p>Our little world</p>
-    <p>เรื่องราวความทรงจำของเรา</p>
-    <button onclick="next()">เริ่มเปิดความทรงจำ ♡</button>
+    <p>OUR LITTLE WORLD</p>
+    <p>ยินดีต้อนรับสู่ความทรงจำของเรา</p>
+    <button onclick="startMemories()">เปิดความทรงจำ ♡</button>
+    <p id="music-status">♫ เพลงของเราจะเริ่มเมื่อกดเปิด</p>
   </div>
 </section>
 
+<!-- วันที่ -->
 <section class="page">
   <div class="card">
-    <h1>16 August 2026</h1>
-    <p>วันเริ่มต้นเรื่องราวของเรา</p>
-    <p class="small">A special date ♡</p>
-    <button onclick="next()">ถัดไป</button>
+    <h1>16.08.2026</h1>
+    <h2>Our Special Day ♡</h2>
+    <p>วันที่เรื่องราวของเราเริ่มต้นขึ้น</p>
   </div>
 </section>
 
-<section class="page">
-  <h2>Our Photos ♡</h2>
-  <img class="photo" src="photo-1.jpeg" alt="ความทรงจำรูปที่ 1">
-  <p>Memory 01</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
+<!-- รูปภาพ 7 รูป -->
+<section class="page"><div class="card"><h2>Our Memories ♡</h2><img class="photo" src="photo-1.jpeg" alt="Photo 1"><p>Memory 01</p></div></section>
+<section class="page"><div class="card"><h2>Our Memories ♡</h2><img class="photo" src="photo-2.jpeg" alt="Photo 2"><p>Memory 02</p></div></section>
+<section class="page"><div class="card"><h2>Our Memories ♡</h2><img class="photo" src="photo-3.jpeg" alt="Photo 3"><p>Memory 03</p></div></section>
+<section class="page"><div class="card"><h2>Our Memories ♡</h2><img class="photo" src="photo-4.jpeg" alt="Photo 4"><p>Memory 04</p></div></section>
+<section class="page"><div class="card"><h2>Our Memories ♡</h2><img class="photo" src="photo-5.jpeg" alt="Photo 5"><p>Memory 05</p></div></section>
+<section class="page"><div class="card"><h2>Our Memories ♡</h2><img class="photo" src="photo-6.jpeg" alt="Photo 6"><p>Memory 06</p></div></section>
+<section class="page"><div class="card"><h2>Our Memories ♡</h2><img class="photo" src="photo-7.jpeg" alt="Photo 7"><p>Memory 07</p></div></section>
 
-<section class="page">
-  <h2>Our Photos ♡</h2>
-  <img class="photo" src="photo-2.jpeg" alt="ความทรงจำรูปที่ 2">
-  <p>Memory 02</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
+<!-- วิดีโอ 3 คลิป -->
+<section class="page"><div class="card"><h2>Our Videos ♡</h2><video controls playsinline><source src="video-1.mp4" type="video/mp4"></video><p>Video 01</p></div></section>
+<section class="page"><div class="card"><h2>Our Videos ♡</h2><video controls playsinline><source src="video-2.mp4" type="video/mp4"></video><p>Video 02</p></div></section>
+<section class="page"><div class="card"><h2>Our Videos ♡</h2><video controls playsinline><source src="video-3.mp4" type="video/mp4"></video><p>Video 03</p></div></section>
 
-<section class="page">
-  <h2>Our Photos ♡</h2>
-  <img class="photo" src="photo-3.jpeg" alt="ความทรงจำรูปที่ 3">
-  <p>Memory 03</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
-
-<section class="page">
-  <h2>Our Photos ♡</h2>
-  <img class="photo" src="photo-4.jpeg" alt="ความทรงจำรูปที่ 4">
-  <p>Memory 04</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
-
-<section class="page">
-  <h2>Our Photos ♡</h2>
-  <img class="photo" src="photo-5.jpeg" alt="ความทรงจำรูปที่ 5">
-  <p>Memory 05</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
-
-<section class="page">
-  <h2>Our Photos ♡</h2>
-  <img class="photo" src="photo-6.jpeg" alt="ความทรงจำรูปที่ 6">
-  <p>Memory 06</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
-
-<section class="page">
-  <h2>Our Photos ♡</h2>
-  <img class="photo" src="photo-7.jpeg" alt="ความทรงจำรูปที่ 7">
-  <p>Memory 07</p>
-  <button onclick="next()">ดูคลิปของเรา</button>
-</section>
-
-<section class="page">
-  <h2>Our Videos ♡</h2>
-  <video controls playsinline>
-    <source src="video-1.mp4" type="video/mp4">
-  </video>
-  <p>Video 01</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
-
-<section class="page">
-  <h2>Our Videos ♡</h2>
-  <video controls playsinline>
-    <source src="video-2.mp4" type="video/mp4">
-  </video>
-  <p>Video 02</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
-
-<section class="page">
-  <h2>Our Videos ♡</h2>
-  <video controls playsinline>
-    <source src="video-3.mp4" type="video/mp4">
-  </video>
-  <p>Video 03</p>
-  <button onclick="next()">ถัดไป</button>
-</section>
-
+<!-- ตัวนับเวลา -->
 <section class="page">
   <div class="card">
-    <h1>♡</h1>
-    <h2>Our Days Together</h2>
-    <p>ทุกวันที่ผ่านมาคืออีกหนึ่งความทรงจำ</p>
-    <h1 id="days">0</h1>
-    <p>days together</p>
-    <button onclick="next()">ถัดไป</button>
+    <h2>♡ Our Time Together ♡</h2>
+    <p>ทุกวินาทีคือความทรงจำ</p>
+    <div id="love-counter">กำลังคำนวณ...</div>
   </div>
 </section>
 
+<!-- จดหมาย -->
 <section class="page">
   <div class="card">
-    <h2>A Little Letter 💌</h2>
+    <h2>To You 💌</h2>
     <p>
-      ขอบคุณสำหรับช่วงเวลาดี ๆ
-      และความทรงจำมากมายที่เกิดขึ้น
-      ขอให้เรามีเรื่องราวดี ๆ
+      ขอบคุณสำหรับทุกช่วงเวลาดี ๆ
+      ขอบคุณที่ทำให้มีความทรงจำมากมาย
+      หวังว่าเราจะมีเรื่องราวดี ๆ
       ให้จดจำเพิ่มขึ้นไปเรื่อย ๆ
     </p>
-    <button onclick="next()">ถัดไป</button>
+    <p>With love ♡</p>
   </div>
 </section>
 
+<!-- หน้าสุดท้าย -->
 <section class="page">
   <div class="card">
-    <h1>The End ♡</h1>
-    <p>แต่ความทรงจำยังไม่จบแค่นี้</p>
-    <p>Thank you for being part of my memories.</p>
-    <button onclick="goHome()">กลับไปหน้าแรก</button>
-  </div>
-</section>
-
-<section class="page">
-  <div class="card">
-    <h2>♫ Now Playing</h2>
-    <p>ต่อจากนี้เพลงรักทุกเพลงจะเป็นของเธอเท่านั้น</p>
-    <p>No One Else ♡</p>
-    <iframe
-      width="100%"
-      height="200"
-      src="https://www.youtube.com/embed/jbOTVZAm21M"
-      title="No One Else Official Music Video"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-    <p class="small">กดเล่นเพลงได้จากเครื่องเล่นด้านบน</p>
+    <h1>Thank You ♡</h1>
+    <p>ขอบคุณที่เป็นส่วนหนึ่งของความทรงจำนี้</p>
+    <h2>P ♡ J</h2>
     <button onclick="goHome()">กลับหน้าแรก</button>
   </div>
 </section>
 
-<div style="position:fixed;bottom:12px;left:0;right:0">
-  <button onclick="prev()">ย้อนกลับ</button>
-  <button onclick="next()">ถัดไป ♡</button>
-  <p id="progress" class="small">1 / 16</p>
+<div class="navigation">
+  <button onclick="prevPage()">ย้อนกลับ</button>
+  <button onclick="nextPage()">ถัดไป ♡</button>
+  <p id="progress" class="small">1 / 14</p>
 </div>
 
 <script>
 const pages=document.querySelectorAll(".page");
 let current=0;
+let musicStarted=false;
 
 function showPage(){
-  pages.forEach((page,i)=>{
-    page.classList.toggle("active",i===current);
-  });
+  pages.forEach((p,i)=>p.classList.toggle("active",i===current));
   document.getElementById("progress").textContent=
     (current+1)+" / "+pages.length;
   window.scrollTo(0,0);
 }
 
-function next(){
+function startMemories(){
+  startMusic();
+  current=1;
+  showPage();
+}
+
+function startMusic(){
+  if(musicStarted)return;
+  musicStarted=true;
+
+  document.getElementById("music-area").innerHTML=`
+    <iframe
+      width="1"
+      height="1"
+      src="https://www.youtube.com/embed/jbOTVZAm21M?autoplay=1"
+      title="No One Else"
+      allow="autoplay; encrypted-media"
+      style="border:0">
+    </iframe>`;
+
+  document.getElementById("music-status").textContent=
+    "♫ กำลังเริ่มเพลงของเรา";
+}
+
+function nextPage(){
   if(current<pages.length-1){
     current++;
     showPage();
   }
 }
 
-function prev(){
+function prevPage(){
   if(current>0){
     current--;
     showPage();
@@ -248,24 +217,57 @@ function goHome(){
   showPage();
 }
 
-const startDate=new Date(2026,7,16);
-const today=new Date();
-const days=Math.max(0,Math.floor(
-  (today-startDate)/(1000*60*60*24)
-));
-document.getElementById("days").textContent=days;
+/* ตัวนับเวลาจาก 16 สิงหาคม 2026 */
+function updateCounter(){
+  const start=new Date(2026,7,16,0,0,0);
+  const now=new Date();
 
+  if(now<start){
+    document.getElementById("love-counter").textContent=
+      "รอวันเริ่มต้นของเรา ♡";
+    return;
+  }
+
+  let years=now.getFullYear()-start.getFullYear();
+  let months=now.getMonth()-start.getMonth();
+
+  if(now.getDate()<start.getDate())months--;
+  if(months<0){years--;months+=12;}
+
+  const base=new Date(
+    start.getFullYear()+years,
+    start.getMonth()+months,
+    start.getDate()
+  );
+
+  const remaining=now-base;
+  const totalSeconds=Math.floor((now-start)/1000);
+  const totalDays=Math.floor(totalSeconds/86400);
+
+  const hours=Math.floor(remaining/3600000);
+  const minutes=Math.floor((remaining%3600000)/60000);
+  const seconds=Math.floor((remaining%60000)/1000);
+
+  const values=[
+    [years,"ปี"],
+    [months,"เดือน"],
+    [Math.floor(totalDays/7),"สัปดาห์"],
+    [totalDays,"วันทั้งหมด"],
+    [hours,"ชั่วโมง"],
+    [minutes,"นาที"],
+    [seconds,"วินาที"]
+  ];
+
+  document.getElementById("love-counter").innerHTML=
+    values.map(([n,label])=>
+      `<div class="time-box"><strong>${n}</strong><span>${label}</span></div>`
+    ).join("");
+}
+
+updateCounter();
+setInterval(updateCounter,1000);
 showPage();
 </script>
-<div style="padding:25px;text-align:center;background:#fff0f3;border-radius:20px;margin:20px">
-  <h2>♫ เพลงของเรา</h2>
-  <p>ต่อจากนี้เพลงรักทุกเพลงจะเป็นของเธอเท่านั้น</p>
-  <p>No One Else ♡</p>
-  <iframe
-    width="100%"
-    height="200"
-    src="https://www.youtube.com/embed/jbOTVZAm21M"
-    allowfullscreen>
-  </iframe>
-</div></body>
+</body>
 </html>
+

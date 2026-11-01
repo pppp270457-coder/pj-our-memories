@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eaf5ff">
+<title>P ♡ J — Our Memories</title>
+<style>
+:root{--blue:#6da8d5;--deep:#35698f;--pale:#eef7ff;--line:#d8eafa;--ink:#35536b}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#f8fcff,#eaf5ff);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{position:sticky;top:0;z-index:5;background:#ffffffdf;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:12px 14px}
+.brand{text-align:center;font-weight:750;letter-spacing:.08em;color:var(--deep);font-size:20px}
+nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+nav button,.pill,.play{border:1px solid var(--line);background:#fff;color:var(--deep);border-radius:999px;padding:8px 13px;font-size:13px}
+nav button.active,.play{background:var(--blue);color:white;border-color:var(--blue)}
+main{max-width:900px;margin:0 auto;padding:24px 16px 60px}
+.page{display:none;animation:fade .35s ease}.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero{text-align:center;padding:42px 18px 35px;background:#fff;border:1px solid var(--line);border-radius:26px;box-shadow:0 12px 35px #9bbbd51c}
+.cloud{font-size:27px;letter-spacing:12px;color:#9cc9e9}
+h1{font-size:clamp(36px,8vw,62px);margin:12px 0 4px;color:var(--deep);letter-spacing:.08em}
+.sub{color:#789bb7;margin:8px 0 0}.date{font-size:13px;color:#91abc0;margin-top:18px}
+h2{font-size:23px;color:var(--deep);margin:8px 0 18px}
+.intro{line-height:1.8;color:#68859d;text-align:center;max-width:560px;margin:18px auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
+.photo{width:100%;height:235px;object-fit:cover;border-radius:16px;border:1px solid var(--line);background:white}
+.video{width:100%;border-radius:16px;background:#dceeff;border:1px solid var(--line)}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;margin:12px 0;box-shadow:0 8px 24px #9bbbd51a}
+.counter{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.unit{background:#f5faff;border:1px solid var(--line);border-radius:16px;padding:14px 6px;text-align:center}
+.num{font-size:clamp(25px,6vw,38px);font-weight:750;color:var(--deep);font-variant-numeric:tabular-nums}
+.label{font-size:11px;letter-spacing:.08em;color:#84a5bf;margin-top:4px}
+.letter{white-space:pre-line;line-height:2;text-align:center;padding:24px 12px;color:#66839c}
+footer{text-align:center;color:#9ab4c8;font-size:12px;margin-top:30px}
+audio{width:100%;margin-top:14px}
+.small{font-size:12px;color:#91a9bc;line-height:1.7}
+.decor{position:fixed;pointer-events:none;opacity:.45;color:#a8d1ee;animation:float 8s ease-in-out infinite}
+.d1{top:22%;left:4%;font-size:20px}.d2{top:65%;right:5%;font-size:24px;animation-delay:2s}
+@keyframes float{50%{transform:translateY(-15px)}}
+@media(min-width:650px){.counter{grid-template-columns:repeat(6,1fr)}.photo{height:280px}}
+</style>
+</head>
+<body>
+<div class="decor d1">✦</div><div class="decor d2">♡</div>
+<header>
+ <div class="brand">P ♡ J</div>
+ <nav>
+  <button class="active" data-page="home">Home</button>
+  <button data-page="photos">Photos</button>
+  <button data-page="videos">Videos</button>
+  <button data-page="time">Our Time</button>
+  <button data-page="letter">Letter</button>
+ </nav>
+</header>
+<main>
+<section id="home" class="page active">
+ <div class="hero">
+  <div class="cloud">☁︎　✦　☁︎</div>
+  <h1>P ♡ J</h1>
+  <div class="sub">Our Little Memories</div>
+  <div class="date">TOGETHER SINCE · 16 AUGUST 2026</div>
+  <p class="intro">เรื่องราวเล็ก ๆ ที่เราอยากเก็บไว้<br>ทุกภาพ ทุกคลิป และทุกช่วงเวลามีความหมาย</p>
+  <a class="play" id="songLink" href="https://vt.tiktok.com/ZS9yVD41Utfbo-1ahLC/" target="_blank" rel="noopener" style="display:inline-block;text-decoration:none">♫ ฟังเพลงของเรา</a>
+  <p class="small">เพลงประจำ P ♡ J · เปิดฟังผ่าน TikTok</p>
+ </div>
+</section>
+<section id="photos" class="page">
+ <h2>Our Photos</h2>
+ <p class="small">ภาพความทรงจำของ P ♡ J</p>
+ <div class="grid" id="photoGrid"></div>
+</section>
+<section id="videos" class="page">
+ <h2>Our Videos</h2>
+ <p class="small">กดเล่นเพื่อรับชมคลิปความทรงจำ</p>
+ <div class="grid" id="videoGrid"></div>
+</section>
+<section id="time" class="page">
+ <div class="card" style="text-align:center">
+  <div class="cloud">☁︎　♡　✦</div>
+  <h2>Our Time Together</h2>
+  <div style="font-size:20px;color:#6d9fc5;font-weight:700">P ♡ J</div>
+  <div class="counter">
+   <div class="unit"><div class="num" id="months">0</div><div class="label">MONTHS</div></div>
+   <div class="unit"><div class="num" id="weeks">0</div><div class="label">WEEKS</div></div>
+   <div class="unit"><div class="num" id="days">0</div><div class="label">DAYS</div></div>
+   <div class="unit"><div class="num" id="hours">0</div><div class="label">HOURS</div></div>
+   <div class="unit"><div class="num" id="minutes">0</div><div class="label">MINUTES</div></div>
+   <div class="unit"><div class="num" id="seconds">0</div><div class="label">SECONDS</div></div>
+  </div>
+  <p class="small">เริ่มนับตั้งแต่ 16 สิงหาคม 2026 เวลา 00:00 น. (หากเริ่มคบเวลาอื่น สามารถแก้เวลาในไฟล์ index.html ได้)</p>
+ </div>
+</section>
+<section id="letter" class="page">
+ <div class="card">
+  <h2 style="text-align:center">A Little Letter</h2>
+  <div class="letter">ถึง J ♡
+
+ขอบคุณสำหรับทุกช่วงเวลาดี ๆ
+หวังว่าเราจะมีความทรงจำใหม่ ๆ
+ให้กลับมาเปิดดูแล้วอมยิ้มได้เสมอ
+
+จาก P ☁︎</div>
+ </div>
+</section>
+<footer>Made with ♡ for P & J</footer>
+</main>
+<script>
+const buttons=[...document.querySelectorAll('nav button')];
+buttons.forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(b.dataset.page).classList.add('active');
+ buttons.forEach(x=>x.classList.toggle('active',x===b));
+ window.scrollTo({top:0,behavior:'smooth'});
+}));
+const photos=Array.from({length:7},(_,i)=>`assets/photo-${i+1}.jpeg`);
+photos.forEach(src=>{const img=document.createElement('img');img.src=src;img.className='photo';img.loading='lazy';document.getElementById('photoGrid').appendChild(img)});
+for(let i=1;i<=3;i++){const v=document.createElement('video');v.src=`assets/video-${i}.mp4`;v.className='video';v.controls=true;v.playsInline=true;v.preload='metadata';document.getElementById('videoGrid').appendChild(v)}
+function updateCounter(){
+ const start=new Date(2026,7,16,0,0,0); // เดือนใน JavaScript เริ่มนับจาก 0
+ const now=new Date();let diff=Math.max(0,now-start);
+ let months=(now.getFullYear()-start.getFullYear())*12+(now.getMonth()-start.getMonth());
+ const anchor=new Date(start);anchor.setMonth(anchor.getMonth()+months);
+ if(anchor>now){months--;anchor.setMonth(anchor.getMonth()-1)}
+ const remaining=now-anchor;
+ const totalSeconds=Math.floor(diff/1000);
+ const totalDays=Math.floor(totalSeconds/86400);
+ document.getElementById('months').textContent=months;
+ document.getElementById('weeks').textContent=Math.floor(totalDays/7);
+ document.getElementById('days').textContent=totalDays;
+ document.getElementById('hours').textContent=Math.floor((totalSeconds%86400)/3600);
+ document.getElementById('minutes').textContent=Math.floor((totalSeconds%3600)/60);
+ document.getElementById('seconds').textContent=totalSeconds%60;
+}
+updateCounter();setInterval(updateCounter,1000);
+</script>
+</body>
+</html>
